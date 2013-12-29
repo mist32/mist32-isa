@@ -1,4 +1,3 @@
-mist32-isa
+MIST32 Instruction Set Architecture
 ==========
-
-Open source Processor MIST32, Instruction Set Architecture
+http://open-arch.org
