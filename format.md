@@ -10,6 +10,7 @@ I11
 Immediate 11 Format
 
 | 31 | 30…21 | 20 | 19…16 | 15…10 | 9…5 | 4…0 |
+|--------|--------|--------|--------|--------|--------|--------|
 | (Reserved) | Opcode | Is immediate? | AFE | Immediate[10...5] | Operand1(Destination) | Immediate[4...0] |
 
 I16
