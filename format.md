@@ -18,6 +18,7 @@ I16
 Immediate 16 Format
 
 |31|30…21|20…10|9…5|4…0|
+|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Immediate[15...5]|Operand1(Destination)|Immediate[4...0]|
 
 
@@ -26,6 +27,7 @@ O2
 Operand2 Format
 
 |31|30…21|20|19…16|15…10|9…5|4…0|
+|--------|--------|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|AFE|ADV|Operand1(Destination)|Operand2|
 
 ADV : Displacementつきアクセスの場合、この領域はDisplacementとして扱われ、その他の命令は未使用になります。
@@ -43,6 +45,7 @@ C
 Control Fotmat
 
 |31|30…21|20|19…16|15…0|
+|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|AFE|(Reserved)|
 
 CI16
@@ -50,6 +53,7 @@ CI16
 Control Fotmat + Immediate
 
 |31|30…21|20|19…16|15…0|
+|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|AFE|Immediate[15...0]|
 
 JI16
@@ -58,6 +62,7 @@ Jump Immediate Format
 
 
 |31|30…21|20|19…16|15…0|
+|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|CC|Immediate[15…0]|
 
 
@@ -66,6 +71,7 @@ JO1
 Jump Operand
 
 |31|30…21|20|19…16|15…10|9…5|4…0|
+|--------|--------|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|CC|(Reserved)|Operand1|(Reserved)|
 
 
