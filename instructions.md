@@ -57,7 +57,7 @@ MIST32 Instruction Format
 |083|131||store register or immediate||ST8|O2|I11|MEMORY[Rs] = mask(Rd, 8)|フラグを発生しない||||2|メモリ保護違反の場合||
 |084|132|||1bit左シフト|ST16|O2|I11|O2の時 : MEMORY[Rs] = mask(Rd, 16) I11の時 : MEMORY[Rs>>1] = mask(Rd, 16)|フラグを発生しない||||2|メモリ保護違反の場合||
 |085|133|||2bit左シフト|ST32|O2|I11|O2の時 : MEMORY[Rs] = mask(Rd, 16) I11の時 : MEMORY[Rs>>2] = mask(Rd, 16)|フラグを発生しない||||2|メモリ保護違反の場合||
-|088|136||push||PUSH|O1|CI16|MEMORY[SPR] = Rd|フラグを発生しない||||2|メモリ保護違反の場合||
+|088|136||push|符号拡張|PUSH|O1|CI16|MEMORY[SPR] = Rd|フラグを発生しない||||2|メモリ保護違反の場合||
 |089|137||Program Counter Push||PUSHPC|C||MEMORY[SPR] = PC + 8|フラグを発生しない||||2|メモリ保護違反の場合||
 |090|144||pop||POP|O1||Rd = MEMORY[SPR]|フラグを発生しない||MA||2|メモリ保護違反の場合||
 |09A|154||with signed displacement||LDD8|O2||Rd = mask(MEMORY[Rs+displacement], 8)|フラグを発生しない|MA|||2|メモリ保護違反の場合||
