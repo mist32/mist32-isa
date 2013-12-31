@@ -1,7 +1,7 @@
 MIST32 Instruction Format
 ==========
 
-|Addr[Hex]|Addr[Dec]|Type|Instruction|Immediate|Mnemonic|Format1(Operand/Disp)|Format2(Imm)|Operation|Flag Information|AFE-Format1|AFE-Format2(Imm)|実行権限|トラップ番号|例外発生の条件|備考|
+|Addr[Hex]|Addr[Dec]|Type|Instruction|Immediate|Mnemonic|Format1(Operand/Disp)|Format2(Imm)|Operation|Flag|AFE-Format1|AFE-Format2(Imm)|実行権限|トラップ番号|例外発生の条件|備考|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |000|0|integer|add|符号拡張|ADD|O2|I11|Rd = Rd + Rs||||||||
 |001|1||sub|符号拡張|SUB|O2|I11|Rd = Rd - Rs||||||||
@@ -57,7 +57,7 @@ MIST32 Instruction Format
 |083|131||store register or immediate||ST8|O2|I11|MEMORY[Rs] = mask(Rd, 8)|フラグを発生しない||||2|メモリ保護違反の場合||
 |084|132|||1bit左シフト|ST16|O2|I11|O2の時 : MEMORY[Rs] = mask(Rd, 16) I11の時 : MEMORY[Rs>>1] = mask(Rd, 16)|フラグを発生しない||||2|メモリ保護違反の場合||
 |085|133|||2bit左シフト|ST32|O2|I11|O2の時 : MEMORY[Rs] = mask(Rd, 16) I11の時 : MEMORY[Rs>>2] = mask(Rd, 16)|フラグを発生しない||||2|メモリ保護違反の場合||
-|088|136||push||PUSH|O1||MEMORY[SPR] = Rd|フラグを発生しない||||2|メモリ保護違反の場合||
+|088|136||push||PUSH|O1|CI16|MEMORY[SPR] = Rd|フラグを発生しない||||2|メモリ保護違反の場合||
 |089|137||Program Counter Push||PUSHPC|C||MEMORY[SPR] = PC + 8|フラグを発生しない||||2|メモリ保護違反の場合||
 |090|144||pop||POP|O1||Rd = MEMORY[SPR]|フラグを発生しない||MA||2|メモリ保護違反の場合||
 |09A|154||with signed displacement||LDD8|O2||Rd = mask(MEMORY[Rs+displacement], 8)|フラグを発生しない|MA|||2|メモリ保護違反の場合||
@@ -114,7 +114,7 @@ MIST32 Instruction Format
 |102|258||move data||MOVE|O2||Rd = Rs|フラグを発生しない|||||||
 |103|259||Move Programm Counter + Offset|符号拡張　2bit左シフト|MOVEPC|O2|I11|Rd = Rs(Signed) + PC|フラグを発生しない|||||||
 |120|288|OS & Interrupt Support|Software Interrupt ||SWI||I11|Software Interrupt, Interrupt Vector:Mask8bit(Rs)|フラグを発生しない|||||||
-|121|289||Test And Set||TAS||||フラグを発生しない|||||||
+|121|289||Test And Set||TAS|O2|I11|tas gr[src0], mem[src1]|フラグを発生しない|||||||
 |122|290||IDT Set||IDTS|C||Set IDT|フラグを発生しない|||カーネルモードのみ||特権違反|IDTRの情報をもとにハードウェア割り込みの情報を内部レジスタに退避|
 |123|291||Load Linked||LDL|||||||||||
 |124|292||Store Conditional||STC|||||||||||
