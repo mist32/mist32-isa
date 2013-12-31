@@ -37,6 +37,7 @@ O1
 Operand1 Format
 
 |31|30…21|20|19…16|15…10|9…5|4…0|
+|--------|--------|--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|Is immediate?|AFE|(Reserved)|Operand1(Destination)|(Reserved)|
 
 
