@@ -5,7 +5,7 @@ MIST32 Instruction Format
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |000|0|integer|add|符号拡張|ADD|O2|I11|Rd = Rd + Rs||||||||
 |001|1||sub|符号拡張|SUB|O2|I11|Rd = Rd - Rs||||||||
-|002|2||mul output Low 32bit|符号拡張|MULL|O2|I11|Rd = (Rd * Rs) & 0xFFFF||||||||
+|002|2||mul output Low 32bit|符号拡張|MULL|O2|I11|Rd = (Rd * Rs) & 0xFFFFFFFF||||||||
 |003|3||mul output High 32bit|符号拡張|MULH|O2|I11|Rd = (Rd * Rs) >> 32||||||||
 |004|4||unsigned div||UDIV|O2|I11|Rd = Rd / Rs|||||4|0割の時（結果は0）||
 |005|5||unsigned mod||UMOD|O2|I11|Rd = Rd % Rs|||||4|0割の時（結果は0）||

@@ -5,7 +5,7 @@
 Addr[Hex],Addr[Dec],Type,Instruction,Immediate,Mnemonic,Opcode,Format1(Operand/Disp),Format2(Imm),Operation,Flag,AFE-Format1,AFE-Format2(Imm),実行権限,トラップ番号,例外発生の条件,備考,,,,,,,,,,,,,,,,,,,,
 000,0,integer,add,符号拡張,ADD,0000000000,O2,I11,Rd = Rd + Rs,,,,,,,,,,,,,,,,,,,,,,,,,,,
 001,1,,sub,符号拡張,SUB,0000000001,O2,I11,Rd = Rd - Rs,,,,,,,,,,,,,,,,,,,,,,,,,,,
-002,2,,mul output Low 32bit,符号拡張,MULL,0000000010,O2,I11,Rd = (Rd * Rs) & 0xFFFF,,,,,,,,,,,,,,,,,,,,,,,,,,,
+002,2,,mul output Low 32bit,符号拡張,MULL,0000000010,O2,I11,Rd = (Rd * Rs) & 0xFFFFFFFF,,,,,,,,,,,,,,,,,,,,,,,,,,,
 003,3,,mul output High 32bit,符号拡張,MULH,0000000011,O2,I11,Rd = (Rd * Rs) >> 32,,,,,,,,,,,,,,,,,,,,,,,,,,,
 004,4,,unsigned div,,UDIV,0000000100,O2,I11,Rd = Rd / Rs,,,,,4,0割の時（結果は0）,,,,,,,,,,,,,,,,,,,,,
 005,5,,unsigned mod,,UMOD,0000000101,O2,I11,Rd = Rd % Rs,,,,,4,0割の時（結果は0）,,,,,,,,,,,,,,,,,,,,,
