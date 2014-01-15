@@ -1,5 +1,6 @@
 import csv
 import sys
+import re
 
 def savefile(f_addr, w_str):
 	fp = open(f_addr, "w")
@@ -17,16 +18,17 @@ if __name__ == "__main__":
 	fp = open(sys.argv[1], "r")
 
 	for row in csv.reader(fp):
-		row = [i.decode("shift-jis") for i in row]
+		# escape
+		row = [re.sub(r"([\\\`\*\_\{\}\[\]\(\)\#\+\-\.\!])", r"\\\1", i.decode("shift-jis")) for i in row]
 
 		if(row[offset+5] != ""):
 			if(cnt == 1):
-				w_str = w_str + "|"
+				w_str = w_str + u"|"
 				for i in range(17):
-					w_str = w_str + "---|"
-				w_str = w_str + "\r\n"
+					w_str = w_str + u"---|"
+				w_str = w_str + u"\r\n"
 
-			w_str += "|".join(row) + "\r\n"
+			w_str += u"|%s|\r\n" % (u"|".join(row[:17]))
 			cnt = cnt + 1
 
 	fp.close()
