@@ -5,7 +5,7 @@ title: MIST32 Instructions
 MIST32 Instructions
 ==========
 
-|Addr\[Hex\]|Addr\[Dec\]|Type|Instruction|Immediate|Mnemonic|Opcode|Format1\(Operand/Disp\)|Format2\(Imm\)|Operation|Flag|AFE\-Format1|AFE\-Format2\(Imm\)|実行権限|トラップ番号|例外発生の条件|備考|
+|Addr\[Hex\]|Addr\[Dec\]|Type|Instruction|Immediate|Mnemonic|Opcode|FMT1\(Operand/Disp\)|FMT2\(Imm\)|Operation|Flag|AFE\-FMT1|AFE\-FMT2\(Imm\)|Auth|Trap|Trap Condition|Note|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |000|0|integer|add|符号拡張|ADD|0000000000|O2|I11|Rd = Rd \+ Rs| | | | | | | |
 |001|1| |sub|符号拡張|SUB|0000000001|O2|I11|Rd = Rd \- Rs| | | | | | | |
