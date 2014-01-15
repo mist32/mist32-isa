@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
 	for row in csv.reader(fp):
 		# escape
-		row = [re.sub(r"([\\\`\*\_\{\}\[\]\(\)\#\+\-\.\!])", r"\\\1", i.decode("shift-jis"))
+		row = [re.sub(r"([\\\`\*\_\{\}\[\]\(\)\#\+\-\.\!\|])", r"\\\1", i.decode("shift-jis"))
 		       if i else u" "
 		       for i in row]
 
