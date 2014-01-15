@@ -1,11 +1,9 @@
 import csv
 import sys
-import codecs
-
 
 def savefile(f_addr, w_str):
 	fp = open(f_addr, "w")
-	fp.write(w_str)
+	fp.write(w_str.encode("utf-8"))
 	fp.close()
 
 if __name__ == "__main__":
@@ -16,10 +14,11 @@ if __name__ == "__main__":
 		print("Parameter Error")
 		sys.exit()
 
-	fp = open(sys.argv[1])
-	#fp = codecs.open(sys.argv[1], 'r', 'ascii')
-	
+	fp = open(sys.argv[1], "r")
+
 	for row in csv.reader(fp):
+		row = [i.decode("shift-jis") for i in row]
+
 		if(row[offset+5] != ""):
 			if(cnt == 1):
 				w_str = w_str + "|"
@@ -27,24 +26,10 @@ if __name__ == "__main__":
 					w_str = w_str + "---|"
 				w_str = w_str + "\r\n"
 
-			w_str = w_str + "|" + row[offset]
-			w_str = w_str + "|" + row[offset+1]
-			w_str = w_str + "|" + row[offset+2]
-			w_str = w_str + "|" + row[offset+3]
-			w_str = w_str + "|" + row[offset+4]
-			w_str = w_str + "|" + row[offset+5]
-			w_str = w_str + "|" + row[offset+7]
-			w_str = w_str + "|" + row[offset+8]
-			w_str = w_str + "|" + row[offset+9]
-			w_str = w_str + "|" + row[offset+10]
-			w_str = w_str + "|" + row[offset+11]
-			w_str = w_str + "|" + row[offset+12]
-			w_str = w_str + "|" + row[offset+13]
-			w_str = w_str + "|" + row[offset+14]
-			w_str = w_str + "|" + row[offset+15]
-			w_str = w_str + "|" + row[offset+16]
-			w_str = w_str + "|\r\n"
+			w_str += "|".join(row) + "\r\n"
 			cnt = cnt + 1
+
+	fp.close()
 
 	savefile(sys.argv[2], w_str)
 	print(str(cnt) + " Instructions")
