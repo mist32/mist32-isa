@@ -6,5 +6,8 @@ MIST32 Instruction Set Architecture
 * [Condition Code](conditioncode.md)
 * [AFE](afe.md)
 
-See here to get more information of mist32.  
+Also available on GitHub Pages  
+http://mist32.github.io/mist32-isa/
+
+See here to get more information of mist32 processor.  
 http://open-arch.org/
