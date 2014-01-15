@@ -1,3 +1,4 @@
+
 import csv
 import sys
 import re
@@ -19,9 +20,11 @@ if __name__ == "__main__":
 
 	for row in csv.reader(fp):
 		# escape
-		row = [re.sub(r"([\\\`\*\_\{\}\[\]\(\)\#\+\-\.\!])", r"\\\1", i.decode("shift-jis")) for i in row]
+		row = [re.sub(r"([\\\`\*\_\{\}\[\]\(\)\#\+\-\.\!])", r"\\\1", i.decode("shift-jis"))
+		       if i else u" "
+		       for i in row]
 
-		if(row[offset+5] != ""):
+		if(row[offset+5] != u" "):
 			if(cnt == 1):
 				w_str = w_str + u"|"
 				for i in range(17):
