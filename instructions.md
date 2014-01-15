@@ -1,4 +1,8 @@
-MIST32 Instruction Format
+---
+layout: default
+title: MIST32 Instructions
+---
+MIST32 Instructions
 ==========
 
 |Addr\[Hex\]|Addr\[Dec\]|Type|Instruction|Immediate|Mnemonic|Opcode|Format1\(Operand/Disp\)|Format2\(Imm\)|Operation|Flag|AFE\-Format1|AFE\-Format2\(Imm\)|実行権限|トラップ番号|例外発生の条件|備考|

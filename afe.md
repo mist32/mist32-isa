@@ -1,4 +1,8 @@
-﻿MIST32 AFE
+﻿---
+layout: default
+title: MIST32 AFE
+---
+MIST32 AFE
 ==========
 Advanced Functional Extend
 

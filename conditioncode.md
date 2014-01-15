@@ -1,4 +1,8 @@
-﻿MIST32 Condition Code
+﻿---
+layout: default
+title: MIST32 Condition Code
+---
+MIST32 Condition Code
 ==========
 分岐命令でで使用される分岐条件です。Condition Code(以下CC)は以下のように使用します。
 

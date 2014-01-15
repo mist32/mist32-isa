@@ -1,4 +1,8 @@
-﻿MIST32 Instruction Format
+﻿---
+layout: default
+title: MIST32 Instruction Format
+---
+MIST32 Instruction Format
 ==========
 大きく分けて2つフォーマットがあり、O フォーマットと、I フォーマットがあります。オペランドにレジスタを取るフォーマットと、即値を取るフォーマットです。
 
