@@ -1,4 +1,4 @@
-﻿MIST32 AFE
+MIST32 AFE
 ==========
 Advanced Functional Extend
 
