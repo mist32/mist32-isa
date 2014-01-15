@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: MIST32 Instruction Format
 ---
