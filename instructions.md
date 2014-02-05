@@ -93,6 +93,8 @@ MIST32 Instruction Format
 |0D5|213| |FRCLR Read| |SRFRCLR|0011010101|O1| | |フラグを発生しない| | | | | | |
 |0D6|214| |FRCHR Read| |SRFRCHR|0011010110|O1| | |フラグを発生しない| | | | | | |
 |0D7|215| |PFLAGR Read| |SRPFLAGR|0011010111|O1| |Rd = SRPFLAGR|フラグを発生しない| | | | | | |
+|0D8|216| |FI0R Read| |SRFI0R|0011011000|O1| |Rd = FI0R|フラグを発生しない| | | | | | |
+|0D9|217| |FI1R Read| |SRFI1R|0011011001|O1| |Rd = FI1R|フラグを発生しない| | | | | | |
 |0E0|224|System Register Write|Stack Point Register Write| |SRSPW|0011100000|O1| |SPR = Rd|フラグを発生しない| | | | | | |
 |0E1|225| |Page Directory Table Register Write| |SRPDTW|0011100001|O1| | |フラグを発生しない| | |カーネルモードのみ実行可能| |特権違反| |
 |0E5|229| |Interrupt Enable Information Write| |SRIEIW|0011100101|O1|I11|mask\(SR1\) = \(Rs & 0x00000004\) >> 2|フラグを発生しない| | |ルートモードのみ実行可能|3|特権違反|1で許可|
