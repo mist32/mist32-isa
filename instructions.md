@@ -1,7 +1,7 @@
 MIST32 Instruction Format
 ==========
 
-|Addr\[Hex\]|Addr\[Dec\]|Type|Instruction|Immediate|Mnemonic|Opcode|FMT1\(Operand/Disp\)|FMT2\(Imm\)|Operation|Flag|AFE\-FMT1|AFE\-FMT2\(Imm\)|Auth|Trap|Trap Condition|Note|
+|Addr\[Hex\]|Addr\[Dec\]|Type|Instruction|Immediate\(Displacement\)|Mnemonic|Opcode|FMT1\(Operand/Disp\)|FMT2\(Imm\)|Operation|Flag|AFE\-FMT1|AFE\-FMT2\(Imm\)|Auth|Trap|Trap Condition|Note|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |000|0|integer|add|符号拡張|ADD|0000000000|O2|I11|Rd = Rd \+ Rs| | | | | | | |
 |001|1| |sub|符号拡張|SUB|0000000001|O2|I11|Rd = Rd \- Rs| | | | | | | |
@@ -60,12 +60,12 @@ MIST32 Instruction Format
 |088|136| |push|符号拡張|PUSH|0010001000|O1|CI16|MEMORY\[SPR\] = Rd|フラグを発生しない| | | |2|メモリ保護違反の場合| |
 |089|137| |Program Counter Push| |PUSHPC|0010001001|C| |MEMORY\[SPR\] = PC \+ 8|フラグを発生しない| | | |2|メモリ保護違反の場合| |
 |090|144| |pop| |POP|0010010000|O1| |Rd = MEMORY\[SPR\]|フラグを発生しない| |MA| |2|メモリ保護違反の場合| |
-|09A|154| |with signed displacement| |LDD8|0010011010|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 8\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
-|09B|155| |with signed displacement|1bit左シフト|LDD16|0010011011|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 16\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
-|09C|156| |with signed displacement|2bit左シフト|LDD32|0010011100|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 16\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
-|09D|157| |with signed displacement| |STD8|0010011101|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 8\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
-|09E|158| |with signed displacement|1bit左シフト|STD16|0010011110|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
-|09F|159| |with signed displacement|2bit左シフト|STD32|0010011111|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|09A|154| |with signed displacement|\(符号拡張\)|LDD8|0010011010|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 8\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
+|09B|155| |with signed displacement|1bit左シフト\(符号拡張・1bit左シフト\)|LDD16|0010011011|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 16\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
+|09C|156| |with signed displacement|2bit左シフト\(符号拡張・2bit左シフト\)|LDD32|0010011100|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 16\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
+|09D|157| |with signed displacement|\(符号拡張\)|STD8|0010011101|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 8\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|09E|158| |with signed displacement|1bit左シフト\(符号拡張・1bit左シフト\)|STD16|0010011110|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|09F|159| |with signed displacement|2bit左シフト\(符号拡張・2bit左シフト\)|STD32|0010011111|O2| |MEMORY\[Rs\] = mask\(Rd\+displacement, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
 |0A0|160|Branch|\(PC relative addressing\) register or imm Unsigned\!|2bit左シフト|BUR|0010100000|JO1|JI16|PC = PC \+ unsigned\(Rd\)|フラグを発生しない| | | |2|メモリ保護違反の場合|Word Addressing|
 |0A1|161| |\(PC relative addressing\) register or imm Signed\!|2bit左シフト|BR|0010100001|JO1|JI16|PC = PC \+ signed\(Rd\)|フラグを発生しない| | | |2|メモリ保護違反の場合|Word Addressing|
 |0A2|162| |\(direct addressing\)register or immediate|2bit左シフト|B|0010100010|JO1|JI16|PC = unsigned\(Rd\)|フラグを発生しない| | | |2|メモリ保護違反の場合|Word Addressing|
