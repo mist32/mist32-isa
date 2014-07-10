@@ -52,13 +52,19 @@ MIST32 Instruction Format
 |077|119| |Signed Load Immediate\(High\)| |LIH|0001110111| |I16|Rd = Rs<<16|フラグを発生しない| | | | | | |
 |07A|122| |Unsigned Load Immediate| |ULIL|0001111010| |I16|Rd = Rs| | | | | | | |
 |080|128|Memory Access|load register or immediate| |LD8|0010000000|O2|I11|Rd = mask\(MEMORY\[Rs\], 8\)|フラグを発生しない|MA|MA| |2|メモリ保護違反の場合| |
-|081|129| | |1bit左シフト|LD16|0010000001|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>1\], 16\)|フラグを発生しない|MA|MA| |2|メモリ保護違反の場合| |
-|082|130| | |2bit左シフト|LD32|0010000010|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>2\], 16\)|フラグを発生しない|MA|MA| |2|メモリ保護違反の場合| |
+|081|129| |load register or immediate|1bit左シフト|LD16|0010000001|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>1\], 16\)|フラグを発生しない|MA|MA| |2|メモリ保護違反の場合| |
+|082|130| |load register or immediate|2bit左シフト|LD32|0010000010|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>2\], 16\)|フラグを発生しない|MA|MA| |2|メモリ保護違反の場合| |
 |083|131| |store register or immediate| |ST8|0010000011|O2|I11|MEMORY\[Rs\] = mask\(Rd, 8\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
-|084|132| | |1bit左シフト|ST16|0010000100|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>1\] = mask\(Rd, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
-|085|133| | |2bit左シフト|ST32|0010000101|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>2\] = mask\(Rd, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|084|132| |store register or immediate|1bit左シフト|ST16|0010000100|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>1\] = mask\(Rd, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|085|133| |store register or immediate|2bit左シフト|ST32|0010000101|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>2\] = mask\(Rd, 16\)|フラグを発生しない| | | |2|メモリ保護違反の場合| |
 |088|136| |push|符号拡張|PUSH|0010001000|O1|CI16|MEMORY\[SPR\] = Rd|フラグを発生しない| | | |2|メモリ保護違反の場合| |
 |089|137| |Program Counter Push| |PUSHPC|0010001001|C| |MEMORY\[SPR\] = PC \+ 8|フラグを発生しない| | | |2|メモリ保護違反の場合| |
+|08A|138| |Load\(always use PDTR\)| |LD8U|0010001010|O2|I11|Rd = mask\(MEMORY\[Rs\], 8\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
+|08B|139| |Load\(always use PDTR\)|1bit左シフト|LD16U|0010001011|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>1\], 16\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
+|08C|140| |Load\(always use PDTR\)|2bit左シフト|LD32U|0010001100|O2|I11|O2の時 : Rd = mask\(MEMORY\[Rs\], 16\) I11の時Rd = mask\(MEMORY\[Rs>>2\], 16\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
+|08D|141| |Store\(always use PDTR\)| |ST8U|0010001101|O2|I11|MEMORY\[Rs\] = mask\(Rd, 8\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
+|08E|142| |Store\(always use PDTR\)|1bit左シフト|ST16U|0010001110|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>1\] = mask\(Rd, 16\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
+|08F|143| |Store\(always use PDTR\)|2bit左シフト|ST32U|0010001111|O2|I11|O2の時 : MEMORY\[Rs\] = mask\(Rd, 16\) I11の時 : MEMORY\[Rs>>2\] = mask\(Rd, 16\)|フラグを発生しない| | |カーネルモードのみ実行可能|2,3|メモリ保護違反、特権違反| |
 |090|144| |pop| |POP|0010010000|O1| |Rd = MEMORY\[SPR\]|フラグを発生しない| |MA| |2|メモリ保護違反の場合| |
 |09A|154| |with signed displacement|\(符号拡張\)|LDD8|0010011010|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 8\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
 |09B|155| |with signed displacement|1bit左シフト\(符号拡張・1bit左シフト\)|LDD16|0010011011|O2| |Rd = mask\(MEMORY\[Rs\+displacement\], 16\)|フラグを発生しない|MA| | |2|メモリ保護違反の場合| |
