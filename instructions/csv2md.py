@@ -25,14 +25,14 @@ if __name__ == "__main__":
 		       if i else u" "
 		       for i in row]
 
-		if(row[offset+5] != u" "):
+		if(row[offset+6] != u" "):
 			if(cnt == 1):
 				w_str = w_str + u"|"
 				for i in range(17):
 					w_str = w_str + u"---|"
 				w_str = w_str + u"\r\n"
 
-			w_str += u"|%s|\r\n" % (u"|".join(row[:17]))
+			w_str += u"|%s|\r\n" % (u"|".join(row[:18]))
 			cnt = cnt + 1
 
 	fp.close()
