@@ -1,6 +1,7 @@
 ---
 layout: default
 title: MIST32 Instructions
+css: instructions
 ---
 MIST32 Instructions
 ==========

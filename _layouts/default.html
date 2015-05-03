@@ -7,6 +7,9 @@
     <meta name="description" content="mist32-isa : MIST32 Instruction Set Architecture" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    {% if page.css %}
+    <link rel='stylesheet' type='text/css' href='stylesheets/{{ page.css }}.css' />
+    {% endif %}
 
     <title>{{ page.title }} - mist32-isa</title>
   </head>
