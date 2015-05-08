@@ -258,7 +258,7 @@ Addr[Hex],Addr[Dec],Type-E,Unit,Instruction,Immediate(Displacement),Mnemonic,Opc
 0FC,252,,,,,,0011111100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0FD,253,,,,,,0011111101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0FE,254,,,,,,0011111110,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-0FF,255,○,,SPR + Immediate,符号拡張　2bit左シフト,SRSPWADD,0011111111,,CI16,SPR = SPR + signed immediate,フラグを発生しない,,,,,,,,,,,,,,,,,,,,,,,,,,
+0FF,255,○,,SPR + Immediate,符号拡張　2bit左シフト,SRSPADD,0011111111,,CI16,SPR = SPR + signed immediate,フラグを発生しない,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,256,○,Other,No Operation,,NOP,0100000000,C,,No Operation,フラグを発生しない,,,,,,,,,,,,,,,,,,,,,,,,,,
 101,257,,,pipline is halt,,HALT,0100000001,C,,Halt,フラグを発生しない,,,kernelモードのみ実行可能,3,特権違反,,,,,,,,,,,,,,,,,,,,,
 102,258,○,,move data,,MOVE,0100000010,O2,,Rd = Rs,フラグを発生しない,,,,,,,,,,,,,,,,,,,,,,,,,,
