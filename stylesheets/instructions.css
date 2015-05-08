@@ -13,36 +13,44 @@ td {
     border-right: none;
 }
 
+/* stripe */
 tbody tr:nth-child(even) {
     background-color: #e5e5e5;
 }
 
+/* HEX addr */
 thead th:nth-child(1) {
     max-width: 15px;
 }
 tbody td:nth-child(1) {
+    width: auto;
     text-align: right;
 }
 
+/* DEC addr */
 thead th:nth-child(2) {
     max-width: 15px;
 }
 tbody td:nth-child(2) {
+    width: auto;
     text-align: right;
-    border-right: 1px solid #999;
 }
 
+/* Type-E */
 thead th:nth-child(3) {
     max-width: 5px;
 }
 tbody td:nth-child(3) {
     text-align: center;
+    border-right: 1px dotted #999;
 }
 
+/* Unit */
 thead th:nth-child(4) {
     max-width: 50px;
 }
 
+/* Instruction */
 thead th:nth-child(5) {
     max-width: 100px;
 }
@@ -50,10 +58,12 @@ tbody td:nth-child(5) {
     font-weight: bold;
 }
 
+/* Immediate */
 thead th:nth-child(6) {
     max-width: 50px;
 }
 
+/* Mnemonic */
 thead th:nth-child(7) {
     max-width: 50px;
 }
@@ -62,6 +72,7 @@ tbody td:nth-child(7) {
     font-weight: bold;
 }
 
+/* Opcode */
 thead th:nth-child(8) {
     max-width: 50px;
 }
@@ -70,18 +81,24 @@ tbody td:nth-child(8) {
     font-family: monospace;
 }
 
+/* FMT1 */
 thead th:nth-child(9) {
     max-width: 5px;
 }
 tbody td:nth-child(9) {
     text-align: center;
 }
+/* FMT2 */
 thead th:nth-child(10) {
     max-width: 5px;
 }
 tbody td:nth-child(10) {
     text-align: center;
-    border-right: 1px solid #999;
+}
+
+tbody td:nth-child(11) {
+    border-left: 1px dotted #999;
+    padding-left: 5px;
 }
 
 thead th:nth-child(12) {
