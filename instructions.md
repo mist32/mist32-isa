@@ -121,7 +121,7 @@ MIST32 Instructions
 |0F4|244|○| |\{FRCLR, FRCHR\} \-> FRCR| |SRFRCW|0011110100|C| | |フラグを発生しない| | | | | | |
 |0F5|245|○| |FRCLR Write| |SRFRCLW|0011110101|O1| | |フラグを発生しない| | | | | | |
 |0F6|246|○| |FRCHR Write| |SRFRCHW|0011110110|O1| | |フラグを発生しない| | | | | | |
-|0FF|255|○| |SPR \+ Immediate|符号拡張　2bit左シフト|SRSPWADD|0011111111| |CI16|SPR = SPR \+ signed immediate|フラグを発生しない| | | | | | |
+|0FF|255|○| |SPR \+ Immediate|符号拡張　2bit左シフト|SRSPADD|0011111111| |CI16|SPR = SPR \+ signed immediate|フラグを発生しない| | | | | | |
 |100|256|○|Other|No Operation| |NOP|0100000000|C| |No Operation|フラグを発生しない| | | | | | |
 |101|257| | |pipline is halt| |HALT|0100000001|C| |Halt|フラグを発生しない| | |kernelモードのみ実行可能|3|特権違反| |
 |102|258|○| |move data| |MOVE|0100000010|O2| |Rd = Rs|フラグを発生しない| | | | | | |
