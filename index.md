@@ -6,7 +6,7 @@ MIST32 Processor ISA
 ==========
 
 * [Instructions](instructions.html)
-* [Instruction Froamts](format.html)
+* [Instruction Format](format.html)
 * [Condition Code](conditioncode.html)
 * [AFE](afe.html)
 
