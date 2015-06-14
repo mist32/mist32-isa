@@ -100,9 +100,9 @@ MIST32 Instructions
 |0D0|208| | |PPDTR Read| |SRPPDTR|0011010000|O1| | |フラグを発生しない| | | | | | |
 |0D1|209| | |PTIDR Read| |SRPTIDR|0011010001|O1| | |フラグを発生しない| | | | | | |
 |0D3|211|○| |PSR Read| |SRPSR|0011010011|O1| | |フラグを発生しない| | | | | | |
-|0D4|212|○| |FRCR \-> \{FRCHR, FRCLW\}| |SRFRCR|0011010100|C| | |フラグを発生しない| | | | | | |
-|0D5|213| | |FRCLR Read| |SRFRCLR|0011010101|O1| | |フラグを発生しない| | | | | | |
-|0D6|214| | |FRCHR Read| |SRFRCHR|0011010110|O1| | |フラグを発生しない| | | | | | |
+|0D4|212|○| |FRCR \-> \{FRCHR, FRCLR\}| |SRFRCR|0011010100|C| | |フラグを発生しない| | | | | | |
+|0D5|213|○| |FRCLR Read| |SRFRCLR|0011010101|O1| | |フラグを発生しない| | | | | | |
+|0D6|214|○| |FRCHR Read| |SRFRCHR|0011010110|O1| | |フラグを発生しない| | | | | | |
 |0D7|215|○| |PFLAGR Read| |SRPFLAGR|0011010111|O1| |Rd = SRPFLAGR|フラグを発生しない| | | | | | |
 |0D8|216|○| |FI0R Read| |SRFI0R|0011011000|O1| |Rd = FI0R|フラグを発生しない| | | | | | |
 |0D9|217|○| |FI1R Read| |SRFI1R|0011011001|O1| |Rd = FI1R|フラグを発生しない| | | | | | |
@@ -128,6 +128,6 @@ MIST32 Instructions
 |103|259|○| |Move Programm Counter \+ Offset|符号拡張　2bit左シフト|MOVEPC|0100000011|O2|I11|Rd = Rs\(Signed\) \+ PC|フラグを発生しない| | | | | | |
 |120|288|○|OS & Interrupt Support|Software Interrupt | |SWI|0100100000| |I11|Software Interrupt, Interrupt Vector:Mask8bit\(Rs\)|フラグを発生しない| | | | | | |
 |121|289| | |Test And Set| |TAS|0100100001|O2|I11|tas gr\[src0\], mem\[src1\]|フラグを発生しない| | | | | | |
-|122|290| | |IDT Set| |IDTS|0100100010|C| |Set IDT|フラグを発生しない| | |カーネルモードのみ| |特権違反|IDTRの情報をもとにハードウェア割り込みの情報を内部レジスタに退避|
+|122|290|○| |IDT Set| |IDTS|0100100010|C| |Set IDT|フラグを発生しない| | |カーネルモードのみ| |特権違反|IDTRの情報をもとにハードウェア割り込みの情報を内部レジスタに退避|
 |123|291| | |Load Linked| |LDL|0100100011| | | | | | | | | | |
 |124|292| | |Store Conditional| |STC|0100100100| | | | | | | | | | |
