@@ -90,8 +90,8 @@ MIST32 Instruction Format
 |0CA|202| | |MMU Mode Read| |SRMMUR|0011001010|O1| |Rd = mask\(SR1\)|フラグを発生しない| | | | | |0=アドレス変換なし, 1=予約, 2=1段変換, 3=2段変換|
 |0CB|203| | |IOSR Read| |SRIOSR|0011001011|O1| |Rd = IOSR|フラグを発生しない| | | | | | |
 |0CC|204| | |Task ID\(TID\) Read| |SRTIDR|0011001100|O1| |Rd = TIDR|フラグを発生しない| | | | | | |
-|0CD|205| | |PPSR Read| |SRPPSR|0011001101|O1| | |フラグを発生しない| | | | | | |
-|0CE|206| | |PPCR Read| |SRPPCR|0011001110|O1| | |フラグを発生しない| | | | | | |
+|0CD|205|○| |PPSR Read| |SRPPSR|0011001101|O1| | |フラグを発生しない| | | | | | |
+|0CE|206|○| |PPCR Read| |SRPPCR|0011001110|O1| | |フラグを発生しない| | | | | | |
 |0D0|208| | |PPDTR Read| |SRPPDTR|0011010000|O1| | |フラグを発生しない| | | | | | |
 |0D1|209| | |PTIDR Read| |SRPTIDR|0011010001|O1| | |フラグを発生しない| | | | | | |
 |0D3|211|○| |PSR Read| |SRPSR|0011010011|O1| | |フラグを発生しない| | | | | | |
