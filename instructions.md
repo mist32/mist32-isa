@@ -121,7 +121,7 @@ MIST32 Instruction Format
 |101|257| | |pipline is halt| |HALT|0100000001|C| |Halt|フラグを発生しない| | |kernelモードのみ実行可能|3|特権違反| |
 |102|258|○| |move data| |MOVE|0100000010|O2| |Rd = Rs|フラグを発生しない| | | | | | |
 |103|259|○| |Move Programm Counter \+ Offset|符号拡張　2bit左シフト|MOVEPC|0100000011|O2|I11|Rd = Rs\(Signed\) \+ PC|フラグを発生しない| | | | | | |
-|120|288|○|OS & Interrupt Support|Software Interrupt | |SWI|0100100000| |I11|Software Interrupt, Interrupt Vector:Mask8bit\(Rs\)|フラグを発生しない| | | | | | |
+|120|288| |OS & Interrupt Support|Software Interrupt | |SWI|0100100000| |I11|Software Interrupt, Interrupt Vector:Mask8bit\(Rs\)|フラグを発生しない| | | | | | |
 |121|289| | |Test And Set| |TAS|0100100001|O2|I11|tas gr\[src0\], mem\[src1\]|フラグを発生しない| | | | | | |
 |122|290|○| |IDT Set| |IDTS|0100100010|C| |Set IDT|フラグを発生しない| | |カーネルモードのみ| |特権違反|IDTRの情報をもとにハードウェア割り込みの情報を内部レジスタに退避|
 |123|291| | |Load Linked| |LDL|0100100011| | | | | | | | | | |
