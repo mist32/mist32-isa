@@ -1,5 +1,3 @@
-
-
 MIST32 Instruction Format
 ==========
 大きく分けて2つフォーマットがあり、O フォーマットと、I フォーマットがあります。オペランドにレジスタを取るフォーマットと、即値を取るフォーマットです。
@@ -51,24 +49,13 @@ Control Fotmat
 |--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|0|AFE|(Reserved)|
 
-
 CI16
 ====
-Control Immediate Format
+Control Immediate Fotmat
 
 |31|30…21|20|19…16|15…0|
 |--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|1|AFE|Immediate[15...0]|
-
-
-JO1
-====
-Jump Register Operand Format
-
-|31|30…21|20|19…16|15…10|9…5|4…0|
-|--------|--------|--------|--------|--------|--------|--------|
-|(Reserved)|Opcode|0|CC|(Reserved)|Operand1|(Reserved)|
-
 
 JI16
 ====
@@ -78,4 +65,13 @@ Jump Immediate Format
 |31|30…21|20|19…16|15…0|
 |--------|--------|--------|--------|--------|
 |(Reserved)|Opcode|1|CC|Immediate[15…0]|
+
+
+JO1
+====
+Jump Register Operand Format
+
+|31|30…21|20|19…16|15…10|9…5|4…0|
+|--------|--------|--------|--------|--------|--------|--------|
+|(Reserved)|Opcode|0|CC|(Reserved)|Operand1|(Reserved)|
 
