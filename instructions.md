@@ -30,11 +30,11 @@ MIST32 Instructions
 |016|22| | |unsigned minimum| |UMIN|0000010110|O2|I11|Rd = \(Rd <= Rs\)? Rd : Rs|not generate flags| | | | | | |
 |01C|28|○| |sign extension 8bit to 32bit| |SEXT8|0000011100|O2| |Rd = sign\_extension8to32\(Rs\)|not generate flags| | | | | | |
 |01D|29|○| |sign extension 16bit to 32bit| |SEXT16|0000011101|O2| |Rd = sign\_extension16to32\(Rs\)|not generate flags| | | | | | |
-|040|64|○|Shift|logic shift left| |SHL|0001000000|O2|I11|Rd = Rd<<Rs|最後に追い出されたビットをCFに設定、OFは常にゼロクリア| | | |1|64以上シフトした場合| |
-|041|65|○| |logic shift right| |SHR|0001000001|O2|I11|Rd = Rd>>Rs|最後に追い出されたビットをCFに設定、OFは常にゼロクリア| | | |1|64以上シフトした場合| |
-|045|69|○| |alithmetic shift right| |SAR|0001000101|O2|I11|Rd = Rd>>>Rs|最後に追い出されたビットをCFに設定、OFは常にゼロクリア| | | |1|64以上シフトした場合| |
-|048|72| | |rotate shift left| |ROL|0001001000|O2|I11|Rd = rol\(Rd, Rs\)|最後に追い出されたビットをCFに設定\(0bit目に入るビットと同じ\)、OFは常にゼロクリア| | | |1|64以上シフトした場合| |
-|049|73| | |rotate shift right| |ROR|0001001001|O2|I11|Rd = ror\(Rd, Rs\)|最後に追い出されたビットをCFに設定\(31bit目に入るビットと同じ\)、OFは常にゼロクリア| | | |1|64以上シフトした場合| |
+|040|64|○|Shift|logic shift left| |SHL|0001000000|O2|I11|Rd = Rd<<Rs|CF=Rd\[32\], OF=0| | | |1|64以上シフトした場合| |
+|041|65|○| |logic shift right| |SHR|0001000001|O2|I11|Rd = Rd>>Rs|CF=Rd\[\-1\], OF=0| | | |1|64以上シフトした場合| |
+|045|69|○| |alithmetic shift right| |SAR|0001000101|O2|I11|Rd = Rd>>>Rs|CF=Rd\[\-1\], OF=0| | | |1|64以上シフトした場合| |
+|048|72| | |rotate shift left| |ROL|0001001000|O2|I11|Rd = rol\(Rd, Rs\)|not generate flags| | | |1|64以上シフトした場合| |
+|049|73| | |rotate shift right| |ROR|0001001001|O2|I11|Rd = ror\(Rd, Rs\)|not generate flags| | | |1|64以上シフトした場合| |
 |060|96|○|Logic|and| |AND|0001100000|O2| |Rd = Rd & Rs| | | | | | | |
 |061|97|○| |or| |OR|0001100001|O2| |Rd = Rd &\#124; Rs| | | | | | | |
 |062|98|○| |xor| |XOR|0001100010|O2| |Rd = Rd ^ Rs| | | | | | | |
@@ -126,8 +126,8 @@ MIST32 Instructions
 |101|257| | |pipline halt| |HALT|0100000001|C| |halt|not generate flags| | |kernelモードのみ実行可能|3|特権違反| |
 |102|258|○| |move data| |MOVE|0100000010|O2| |Rd = Rs|not generate flags| | | | | | |
 |103|259|○| |move PCR add immediate|sign extension・2bit left shift|MOVEPC|0100000011|O2|I11|Rd = Rs \+ PCR|not generate flags| | | | | | |
-|120|288| |OS & Interrupt Support|software interrupt | |SWI|0100100000| |I11|Software Interrupt, Interrupt Vector:Mask8bit\(Rs\)|フラグを発生しない| | | | | | |
-|121|289| | |test and set| |TAS|0100100001|O2|I11|tas gr\[src0\], mem\[src1\]|フラグを発生しない| | | | | | |
+|120|288| |OS & Interrupt Support|software interrupt | |SWI|0100100000| |I11|Software Interrupt, Interrupt Vector:Mask8bit\(Rs\)|not generate flags| | | | | | |
+|121|289| | |test and set| |TAS|0100100001|O2|I11|tas gr\[src0\], mem\[src1\]|not generate flags| | | | | | |
 |122|290|○| |set interrupt discriptor table| |IDTS|0100100010|C| |CoreIDT = MEMORY\[IDTR\]|フラグを発生しない| | |カーネルモードのみ| |特権違反|IDTRの情報をもとにハードウェア割り込みの情報を内部レジスタに退避|
 |123|291| | |load linked| |LDL|0100100011| | | | | | | | | | |
 |124|292| | |store conditional| |STC|0100100100| | | | | | | | | | |
